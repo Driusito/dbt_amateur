@@ -1,0 +1,81 @@
+version: 2
+
+sources:
+
+  - name: posgre # name of the source 
+    schema: POSTGRE_DB # this is the schema our raw data lives in
+    database: DB06_BRONZE_DB # this is the name of our database
+
+    config: 
+      loaded_at_field: _fivetran_synced
+
+    tables:
+      - name: ADDRESS
+        columns:
+          - name: ADDRESS
+          - name: ADDRESS_ID
+          - name: COUNTRY
+          - name: STATE
+          - name: ZIPCODE
+          - name: _FIVETRAN_DELETED
+          - name: _FIVETRAN_SYNCED
+      - name: ORDERS
+        columns:
+          - name: CREATED_AT
+          - name: ORDER_ID
+          - name: SHIPPING_SERVICE
+          - name: SHIPPING_COST
+          - name: ADDRESS_ID
+          - name: CREATED_AT
+          - name: PROMO_ID
+          - name: ESTIMATED_DELIVERY_AT
+          - name: ORDER_COST
+          - name: USER_ID
+          - name: ORDER_TOTAL
+          - name: DELIVERED_AT
+          - name: TRACKING_ID
+          - name: STATUS
+          - name: _FIVETRAN_DELETED
+          - name: _FIVETRAN_SYNCED
+
+      - name: ORDER_ITEM
+        columns:
+          - name: ORDER_ID
+          - name: PRODUCT_ID
+          - name: QUANTITY
+          - name: _FIVETRAN_DELETED
+          - name: _FIVETRAN_SYNCED
+      
+      - name: PRODUCTS
+        columns:
+          - name: PRODUCT_ID
+          - name: PRICE
+          - name: NAME
+          - name: INVENTORY
+          - name: _FIVETRAN_DELETED
+          - name: _FIVETRAN_SYNCED
+
+      - name: PROMOS
+        columns:
+          - name: PROMO_ID
+          - name: DISCOUNT
+          - name: STATUS
+          - name: _FIVETRAN_DELETED
+
+      - name: USER
+        columns:
+          - name: USER_ID
+          - name: UPDATED_AT
+          - name: ADDRESS_ID
+          - name: LAST_NAME
+          - name: CREATED_AT
+          - name: PHONE_NUMBER
+          - name: TOTAL_ORDERS
+          - name: FIRST_NAME
+          - name: EMAIL
+          - name: _FIVETRAN_DELETED
+          - name: _FIVETRAN_SYNCED
+          
+
+
+
